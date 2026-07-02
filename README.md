@@ -1,7 +1,6 @@
 # Sidekick
 
 **A local-first personal AI assistant for a developer's whole working day.**
-*Hiring-challenge submission — Tech Lead track.*
 
 > A developer's day isn't broken by one problem — it's broken by **fragmentation**. Your work context is scattered across ~30 tools, and no tool holds a memory of *you*. Sidekick is one local-first brain that captures your whole day once and removes the frictions *together* — running entirely on your machine, proposing (never acting), and showing provenance for everything.
 
@@ -11,12 +10,9 @@
 
 | If you want… | Read |
 |---|---|
-| **The submission** (problem → architecture → demo → honest gaps) | **[`sidekick/SUBMISSION.md`](./sidekick/SUBMISSION.md)** |
-| The problem & research | [`senior_engineer_daily_friction.md`](./senior_engineer_daily_friction.md) · [`DESIGN_DOC.md`](./DESIGN_DOC.md) |
-| The architecture | [`ARCHITECTURE.md`](./ARCHITECTURE.md) |
+| **The architecture** (system design + diagrams) | **[`ARCHITECTURE.md`](./ARCHITECTURE.md)** · [`Sidekick_Architecture.pdf`](./Sidekick_Architecture.pdf) |
 | Every feature + the *why* | [`sidekick/FEATURES.md`](./sidekick/FEATURES.md) |
-| The video script | [`VIDEO_SCRIPT.md`](./VIDEO_SCRIPT.md) |
-| A visual demo walkthrough | [`sidekick/DEMO.md`](./sidekick/DEMO.md) |
+| Data model · privacy/security · cost & latency | [`APPENDIX_data_model.md`](./APPENDIX_data_model.md) · [`APPENDIX_privacy_security.md`](./APPENDIX_privacy_security.md) · [`APPENDIX_cost_latency.md`](./APPENDIX_cost_latency.md) |
 | Production-readiness evidence | [`sidekick/PRODUCTION_READINESS.md`](./sidekick/PRODUCTION_READINESS.md) |
 
 ---
@@ -64,6 +60,4 @@ cd sidekick/companion && npm test   # 88 tests
 
 ## Honest status
 
-Real, working, **88 tests passing**. What's still rough — by design, stated openly: the breadth is a deliberate bet; AI extraction is wired but not benchmarked against a live model; connectors (GitHub, M365) are partial; Recall is keyword, not embeddings; SQLite is Node's experimental build. Full honesty in [`SUBMISSION.md` → What's broken](./sidekick/SUBMISSION.md).
-
-*Internal process notes (`COUNCIL_REVIEW.md`, `SIDEKICK_PROGRESS.md`, `CODEX_BRIEF.md`, `PROJECT_STATUS_AND_HANDOFF.md`) are kept for transparency about how this was built, not as submission material.*
+Real, working, **88 tests passing**. What's still rough — by design, stated openly: the breadth is a deliberate bet; AI extraction is wired but not benchmarked against a live model; connectors (GitHub, M365) are partial; Recall is keyword, not embeddings; SQLite is Node's experimental build. See [`sidekick/PRODUCTION_READINESS.md`](./sidekick/PRODUCTION_READINESS.md) for the full, evidenced status.

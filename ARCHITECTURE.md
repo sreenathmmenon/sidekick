@@ -3,12 +3,9 @@
 
 | | |
 |---|---|
-| **Status** | Draft for review |
 | **Author** | Sreenath |
-| **Reviewers** | (Tech Lead panel) |
-| **Last updated** | 2026-06-28 |
-| **Doc type** | System architecture / design doc |
-| **Related** | `DESIGN_DOC.md` (problem framing), `senior_engineer_daily_friction.md` (research), `VIDEO_SCRIPT.md` |
+| **Doc type** | System architecture / design |
+| **Related** | [`FEATURES.md`](./sidekick/FEATURES.md) (features + the why), the appendices (data model, privacy/security, cost & latency), and `Sidekick_Architecture.pdf` (diagrams) |
 
 ---
 
