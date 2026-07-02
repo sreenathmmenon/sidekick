@@ -1,0 +1,25 @@
+sequenceDiagram
+    autonumber
+    participant Slack as Slack/Teams
+    participant Conn as Connector Framework
+    participant Capture as Context Capture Layer
+    participant Store as State + Timeline Store
+    participant Commit as Commitments
+    participant Core as LLM Reasoning Core
+    participant Policy as Interaction / Attention Policy
+    participant UI as Extension UI
+
+    Slack->>Conn: Message arrives
+    Conn->>Conn: Poll or subscribe
+    Conn->>Capture: Raw message signal
+    Capture->>Capture: Normalize and redact
+    Capture->>Store: Append WorkContextEvent
+    Commit->>Store: Read candidate event
+    Commit->>Core: Extract commitment
+    Core-->>Commit: Commitment with confidence
+    Commit->>Store: Store commitment
+    Store-->>Commit: Provenance ref saved
+    Commit->>Policy: Candidate surface
+    Policy-->>UI: Propose commitment
+    UI-->>Commit: Accept or dismiss
+    Commit->>Store: Update status

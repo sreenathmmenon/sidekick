@@ -1,0 +1,48 @@
+flowchart TB
+    subgraph SURF["1 Surfaces"]
+        ED["VS Code Extension"]
+        BR["Browser Extension"]
+    end
+
+    subgraph LOCAL["2 Local Companion"]
+        CAP["3 Context Capture Layer"]
+        MODEL["4 Event and Data Model"]
+        STORE[("5 State and Timeline Store")]
+        MEM["6 Memory Subsystem"]
+        CORE["7 LLM Reasoning Core"]
+        CAPS["8 Capability Layer"]
+        POLICY["9 Interaction / Attention Policy"]
+        CONN["10 Connector Framework"]
+    end
+
+    subgraph SOURCES["External Sources"]
+        GH["GitHub/GitLab"]
+        JIRA["Jira/Linear"]
+        CHAT["Slack/Teams"]
+        MAIL["Outlook/Gmail"]
+        CAL["Calendar"]
+        MEET["Meeting AI"]
+        DOCS["Docs"]
+    end
+
+    ED --> CAP
+    BR --> CAP
+    CONN --> CAP
+    CAP --> MODEL
+    MODEL --> STORE
+    STORE <--> MEM
+    MEM <--> CORE
+    CORE --> CAPS
+    CAPS --> POLICY
+    POLICY --> ED
+    POLICY --> BR
+    ED --> MEM
+    BR --> MEM
+
+    CONN --> GH
+    CONN --> JIRA
+    CONN --> CHAT
+    CONN --> MAIL
+    CONN --> CAL
+    CONN --> MEET
+    CONN --> DOCS

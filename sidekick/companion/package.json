@@ -1,0 +1,15 @@
+{
+  "name": "sidekick-local-companion",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local-first Sidekick Companion: authenticated capture, encrypted SQLite timeline, five capabilities, meeting lifecycle, connectors, and an optional pluggable LLM extractor.",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node --experimental-sqlite src/server.js",
+    "test": "node --experimental-sqlite --test",
+    "check": "for f in src/*.js; do node --check \"$f\"; done"
+  }
+}

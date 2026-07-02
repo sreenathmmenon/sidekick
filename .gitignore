@@ -1,0 +1,26 @@
+# Sidekick local data (lives in ~/.sidekick by default; never commit if relocated into the repo)
+.sidekick/
+**/*.sqlite
+**/*.sqlite-wal
+**/*.sqlite-shm
+**/*.salt
+**/*.canary
+**/api-token
+**/secret-*
+**/TODO.md
+
+# Dependencies / build (project is zero-dependency today, but guard anyway)
+node_modules/
+*.vsix
+dist/
+build/
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.log
+
+# Scratch / temp
+scratchpad/
+tmp/

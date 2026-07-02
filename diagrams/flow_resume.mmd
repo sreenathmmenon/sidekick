@@ -1,0 +1,29 @@
+sequenceDiagram
+    autonumber
+    participant User
+    participant Surface as Surfaces
+    participant Capture as Context Capture Layer
+    participant Store as State + Timeline Store
+    participant Memory as Memory Subsystem
+    participant Resume as Resume
+    participant Core as LLM Reasoning Core
+    participant Policy as Interaction / Attention Policy
+    participant UI as Extension UI
+
+    User->>Surface: Works in editor
+    Surface->>Capture: Active context signals
+    Capture->>Capture: Normalize and redact
+    Capture->>Store: Append WorkContextEvent
+    Store->>Memory: Update working memory
+    User->>Surface: Interruption happens
+    Surface->>Capture: Last context signals
+    Capture->>Store: Append gap marker
+    User->>UI: Where was I?
+    UI->>Resume: Request resume
+    Resume->>Store: Read recent timeline
+    Resume->>Memory: Read working memory
+    Resume->>Core: Reconstruct state
+    Core-->>Resume: Cited resume summary
+    Resume->>Policy: Candidate surface
+    Policy-->>UI: Propose resume
+    UI-->>User: Show state and next steps

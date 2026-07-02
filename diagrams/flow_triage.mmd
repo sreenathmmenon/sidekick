@@ -1,0 +1,29 @@
+sequenceDiagram
+    autonumber
+    participant GH as GitHub/GitLab
+    participant Jira as Jira/Linear
+    participant Chat as Slack/Teams
+    participant Mail as Outlook/Gmail
+    participant Conn as Connector Framework
+    participant Capture as Context Capture Layer
+    participant Store as State + Timeline Store
+    participant Memory as Memory Subsystem
+    participant Triage as Triage
+    participant Core as LLM Reasoning Core
+    participant Policy as Interaction / Attention Policy
+    participant UI as Extension UI
+
+    GH->>Conn: Review request
+    Jira->>Conn: Assigned ticket
+    Chat->>Conn: Mention
+    Mail->>Conn: Important mail
+    Conn->>Capture: Source signals
+    Capture->>Capture: Normalize and dedup
+    Capture->>Store: Append events
+    Triage->>Store: Read open obligations
+    Triage->>Memory: Read project context
+    Triage->>Core: Rank urgency and importance
+    Core-->>Triage: Ranked cited list
+    Triage->>Policy: Candidate list
+    Policy->>Policy: Check quiet rules
+    Policy-->>UI: Propose what needs me now

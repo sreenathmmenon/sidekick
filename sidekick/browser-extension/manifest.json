@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Sidekick Browser Surface",
+  "version": "1.0.0",
+  "description": "Thin Sidekick browser Surface for page capture and Focus Session awareness.",
+  "action": {
+    "default_title": "Sidekick",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:4317/*"
+  ]
+}

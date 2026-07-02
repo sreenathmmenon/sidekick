@@ -1,0 +1,99 @@
+{
+  "name": "sidekick-vscode-surface",
+  "displayName": "Sidekick Editor Surface",
+  "description": "Sidekick VSIX-compatible Editor Surface for local-first capture and workday assistance.",
+  "version": "1.0.0",
+  "publisher": "sidekick-local",
+  "license": "MIT",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://example.local/sidekick"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "scripts": {
+    "package": "vsce package --no-dependencies",
+    "lint": "node --check extension.js"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.0.0"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "sidekick.openPanel",
+        "title": "Sidekick: Open Panel"
+      },
+      {
+        "command": "sidekick.setToken",
+        "title": "Sidekick: Set Companion Token"
+      },
+      {
+        "command": "sidekick.whereWasI",
+        "title": "Sidekick: Where was I?"
+      },
+      {
+        "command": "sidekick.whatNeedsMeNow",
+        "title": "Sidekick: What needs me now?"
+      },
+      {
+        "command": "sidekick.whatDidIPromise",
+        "title": "Sidekick: What did I promise?"
+      },
+      {
+        "command": "sidekick.whatDidILearn",
+        "title": "Sidekick: What did I learn?"
+      },
+      {
+        "command": "sidekick.whatsRealisticToday",
+        "title": "Sidekick: What's realistic today?"
+      },
+      {
+        "command": "sidekick.startFocusSession",
+        "title": "Sidekick: Start Focus Session"
+      },
+      {
+        "command": "sidekick.completeFocusSession",
+        "title": "Sidekick: Complete Focus Session"
+      },
+      {
+        "command": "sidekick.addTodo",
+        "title": "Sidekick: Add to Today's List"
+      },
+      {
+        "command": "sidekick.showCapturedEvents",
+        "title": "Sidekick: Show Captured Events"
+      }
+    ],
+    "configuration": {
+      "title": "Sidekick",
+      "properties": {
+        "sidekick.companionUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:4317",
+          "description": "Local Companion URL."
+        },
+        "sidekick.authToken": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Deprecated. Use the command **Sidekick: Set Companion Token** to store the token in the OS secret store. Any value here is migrated into secret storage and then cleared.",
+          "deprecationMessage": "Use 'Sidekick: Set Companion Token' — tokens are stored in the OS secret store, not settings."
+        },
+        "sidekick.captureEditedFiles": {
+          "type": "boolean",
+          "default": true,
+          "description": "Capture edited_file WorkContextEvent records."
+        }
+      }
+    }
+  }
+}

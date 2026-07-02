@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sidekick Browser Surface</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="mark">S</div>
+      <div>
+        <h1>Sidekick</h1>
+        <p>Browser Surface</p>
+      </div>
+    </div>
+    <span id="status" class="pill">Idle</span>
+  </header>
+
+  <main>
+    <section class="panel current">
+      <div class="section-head">
+        <h2>Current Page</h2>
+        <span id="pageKind" class="tag">read_doc</span>
+      </div>
+      <div id="pageTitle" class="page-title">No page loaded.</div>
+      <div id="pageMeta" class="meta">Waiting for active tab.</div>
+      <div class="actions">
+        <button id="capture" class="primary">Capture</button>
+        <button id="ignore">Ignore Site</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>Add to Today</h2>
+        <span id="todoCount" class="tag">0</span>
+      </div>
+      <div class="actions" style="grid-template-columns: 1fr auto;">
+        <input id="todoInput" aria-label="Add a task to today" placeholder="Quick task… (captured to your list)">
+        <button id="todoAdd" class="primary">Add</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>Sidekick Status</h2>
+        <span id="focusMode" class="tag">Ambient</span>
+      </div>
+      <div id="focus" class="answer">No active focus session.</div>
+      <div id="answer" class="answer muted">This page is captured into your local memory. Open the Memory Console to ask Resume, Triage, Commitments, Recall, and Plan.</div>
+    </section>
+
+    <section class="panel settings">
+      <details>
+        <summary>Connection</summary>
+        <label>Companion URL
+          <input id="baseUrl" value="http://127.0.0.1:4317">
+        </label>
+        <label>Token
+          <input id="token" type="password" placeholder="dev-local-token">
+        </label>
+        <button id="save">Save connection</button>
+      </details>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>
